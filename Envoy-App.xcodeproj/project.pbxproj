@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,8 @@
 		E571798723F3754E00B4160A /* Envoy_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571798623F3754E00B4160A /* Envoy_AppTests.swift */; };
 		E571799223F3754E00B4160A /* Envoy_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571799123F3754E00B4160A /* Envoy_AppUITests.swift */; };
 		E57179A023F375B000B4160A /* CoffeeShopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571799F23F375B000B4160A /* CoffeeShopsViewController.swift */; };
-		E57179A223F376C200B4160A /* CoffeeShopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57179A123F376C200B4160A /* CoffeeShopsTableViewCell.swift */; };
+		E57179A423F3851600B4160A /* CoffeeShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57179A323F3851600B4160A /* CoffeeShop.swift */; };
+		E57179A623F38C4C00B4160A /* CoffeeShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57179A523F38C4C00B4160A /* CoffeeShopTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +61,8 @@
 		E571799123F3754E00B4160A /* Envoy_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Envoy_AppUITests.swift; sourceTree = "<group>"; };
 		E571799323F3754E00B4160A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E571799F23F375B000B4160A /* CoffeeShopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopsViewController.swift; sourceTree = "<group>"; };
-		E57179A123F376C200B4160A /* CoffeeShopsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopsTableViewCell.swift; sourceTree = "<group>"; };
+		E57179A323F3851600B4160A /* CoffeeShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShop.swift; sourceTree = "<group>"; };
+		E57179A523F38C4C00B4160A /* CoffeeShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopTableViewCell.swift; sourceTree = "<group>"; };
 		E861D58DA78D4A3E1535FE39 /* Pods-Envoy-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Envoy-AppTests.release.xcconfig"; path = "Target Support Files/Pods-Envoy-AppTests/Pods-Envoy-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA299F65B3161B8DF95720F9 /* Pods_Envoy_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Envoy_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,7 +115,6 @@
 				8E8003B37D49E324D71650C3 /* Pods-Envoy-AppTests.debug.xcconfig */,
 				E861D58DA78D4A3E1535FE39 /* Pods-Envoy-AppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -149,7 +150,8 @@
 				E571797D23F3754E00B4160A /* Info.plist */,
 				E571797723F3754E00B4160A /* Preview Content */,
 				E571799F23F375B000B4160A /* CoffeeShopsViewController.swift */,
-				E57179A123F376C200B4160A /* CoffeeShopsTableViewCell.swift */,
+				E57179A323F3851600B4160A /* CoffeeShop.swift */,
+				E57179A523F38C4C00B4160A /* CoffeeShopTableViewCell.swift */,
 			);
 			path = "Envoy-App";
 			sourceTree = "<group>";
@@ -420,8 +422,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E571797023F3754800B4160A /* AppDelegate.swift in Sources */,
-				E57179A223F376C200B4160A /* CoffeeShopsTableViewCell.swift in Sources */,
+				E57179A423F3851600B4160A /* CoffeeShop.swift in Sources */,
 				E571797223F3754800B4160A /* SceneDelegate.swift in Sources */,
+				E57179A623F38C4C00B4160A /* CoffeeShopTableViewCell.swift in Sources */,
 				E57179A023F375B000B4160A /* CoffeeShopsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

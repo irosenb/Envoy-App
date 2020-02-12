@@ -10,7 +10,7 @@ import UIKit
 
 class CoffeeShopsViewController: UIViewController {
     let tableView = UITableView()
-    var coffeeShops = []
+    var coffeeShops = [CoffeeShop]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +20,7 @@ class CoffeeShopsViewController: UIViewController {
     func setupTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
+        tableView.register(CoffeeShopTableViewCell.self, forCellReuseIdentifier: "CoffeeShopTableViewCell")
         view.addSubview(tableView)
         
         tableView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 0).isActive = true
@@ -37,7 +38,7 @@ extension CoffeeShopsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
     }
     
 }
