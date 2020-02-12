@@ -20,20 +20,32 @@ class CoffeeShopTests: XCTestCase {
     }
 
     func testCoffeeShopsNotNil() {
-        Envoy_App.CoffeeShop.fetch { (shops) in
+        Envoy_App.CoffeeShop.fetchAll { (shops) in
             XCTAssertNotNil(shops)
         }
     }
     
     func testCoffeeShopsCount() {
-        Envoy_App.CoffeeShop.fetch { (shops) in
+        Envoy_App.CoffeeShop.fetchAll { (shops) in
             XCTAssertTrue(shops?.count == self.shopCount)
         }
     }
     
     func testCoffeeShopsFirstShop() {
-        Envoy_App.CoffeeShop.fetch { (shops) in
+        Envoy_App.CoffeeShop.fetchAll { (shops) in
             XCTAssertTrue(shops?.first?.name == "Philz Coffee")
+        }
+    }
+    
+    func testCoffeeShopsContainAddress() {
+        Envoy_App.CoffeeShop.fetchAll { (shops) in
+            guard let shops = shops else {
+                XCTFail()
+                return
+            }
+            for shop in shops {
+                XCTAssertTrue(shop.address != nil)
+            }
         }
     }
 }
