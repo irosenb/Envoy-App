@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		E571797023F3754800B4160A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571796F23F3754800B4160A /* AppDelegate.swift */; };
 		E571797223F3754800B4160A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571797123F3754800B4160A /* SceneDelegate.swift */; };
-		E571797423F3754800B4160A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571797323F3754800B4160A /* ContentView.swift */; };
 		E571797623F3754D00B4160A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E571797523F3754D00B4160A /* Assets.xcassets */; };
 		E571797923F3754E00B4160A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E571797823F3754E00B4160A /* Preview Assets.xcassets */; };
 		E571797C23F3754E00B4160A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E571797A23F3754E00B4160A /* LaunchScreen.storyboard */; };
 		E571798723F3754E00B4160A /* Envoy_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571798623F3754E00B4160A /* Envoy_AppTests.swift */; };
 		E571799223F3754E00B4160A /* Envoy_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571799123F3754E00B4160A /* Envoy_AppUITests.swift */; };
+		E57179A023F375B000B4160A /* CoffeeShopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571799F23F375B000B4160A /* CoffeeShopsViewController.swift */; };
+		E57179A223F376C200B4160A /* CoffeeShopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57179A123F376C200B4160A /* CoffeeShopsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 		E571796C23F3754800B4160A /* Envoy-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Envoy-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E571796F23F3754800B4160A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E571797123F3754800B4160A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E571797323F3754800B4160A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E571797523F3754D00B4160A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E571797823F3754E00B4160A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E571797B23F3754E00B4160A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		E571798D23F3754E00B4160A /* Envoy-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Envoy-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E571799123F3754E00B4160A /* Envoy_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Envoy_AppUITests.swift; sourceTree = "<group>"; };
 		E571799323F3754E00B4160A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E571799F23F375B000B4160A /* CoffeeShopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopsViewController.swift; sourceTree = "<group>"; };
+		E57179A123F376C200B4160A /* CoffeeShopsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +103,12 @@
 			children = (
 				E571796F23F3754800B4160A /* AppDelegate.swift */,
 				E571797123F3754800B4160A /* SceneDelegate.swift */,
-				E571797323F3754800B4160A /* ContentView.swift */,
 				E571797523F3754D00B4160A /* Assets.xcassets */,
 				E571797A23F3754E00B4160A /* LaunchScreen.storyboard */,
 				E571797D23F3754E00B4160A /* Info.plist */,
 				E571797723F3754E00B4160A /* Preview Content */,
+				E571799F23F375B000B4160A /* CoffeeShopsViewController.swift */,
+				E57179A123F376C200B4160A /* CoffeeShopsTableViewCell.swift */,
 			);
 			path = "Envoy-App";
 			sourceTree = "<group>";
@@ -268,8 +271,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E571797023F3754800B4160A /* AppDelegate.swift in Sources */,
+				E57179A223F376C200B4160A /* CoffeeShopsTableViewCell.swift in Sources */,
 				E571797223F3754800B4160A /* SceneDelegate.swift in Sources */,
-				E571797423F3754800B4160A /* ContentView.swift in Sources */,
+				E57179A023F375B000B4160A /* CoffeeShopsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

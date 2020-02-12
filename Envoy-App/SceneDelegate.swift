@@ -24,8 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            let window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+            window.windowScene = windowScene
+
+            let nav = UINavigationController(rootViewController: CoffeeShopsViewController())
+            window.rootViewController = nav
+            
             self.window = window
             window.makeKeyAndVisible()
         }
