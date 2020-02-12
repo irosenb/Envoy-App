@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import CoreLocation
 
 class CoffeeShop {
     var id: String?
@@ -14,6 +16,7 @@ class CoffeeShop {
     var rating: String?
     var name: String?
     var photoUrl: String?
+    static let location = "410 Townsend Street, San Francisco, CA"
     
     func updateFromDictionary(_ dictionary: [String : Any]) {
         name = dictionary["name"] as? String
@@ -21,5 +24,38 @@ class CoffeeShop {
         address = location?["address"] as? String
         rating = dictionary["rating"] as? String
         id = dictionary["id"] as? String
+    }
+    
+    static func fetch(completionHandler: @escaping (_ response: [CoffeeShop]?) -> Void) {
+        // First we geocode address into coordinates. Wasn't able to input an address into the request.
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(location) { (placemarks, error) in
+            let placemark = placemarks?.first
+            guard let lat = placemark?.location?.coordinate.latitude else { return }
+            guard let lng = placemark?.location?.coordinate.longitude else { return }
+            
+            // Then we make the request
+            let url = "https://api.foursquare.com/v2/venues/search?ll=\(lat),\(lng)&query=coffee&limit=15&radius=805&client_id=NQTZHZWAZTYN1H1FBNGZEZJJBD0ZB1KDI5JO20PM0XNIPEPV&client_secret=BB52RWLB5UILXUHPSLSC4R4KS4F25VY244YPGT0KARPVDKGP&v=20200211"
+            AF.request(url).responseJSON { (responseJSON) in
+                guard let data = responseJSON.value as? [String: Any] else {
+                    print("Didn't work")
+                    return
+                }
+                
+                guard let response = data["response"] as? [String: Any] else { return }
+                guard let venues = response["venues"] as? [[String: Any]] else { return }
+                
+                var coffeeShops = [CoffeeShop]()
+                
+                for venue in venues {
+                    let coffeeShop = CoffeeShop()
+                    coffeeShop.updateFromDictionary(venue)
+                    
+                    coffeeShops.append(coffeeShop)
+                }
+                
+                completionHandler(coffeeShops)
+            }
+        }
     }
 }
