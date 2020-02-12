@@ -11,22 +11,68 @@ import UIKit
 class CoffeeShopDetailViewController: UIViewController {
     var coffeeShop: CoffeeShop?
     let image = UIImageView()
-    let 
+    let nameLabel = UILabel()
+    let addressLabel = UILabel()
+    let ratingLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = .white
+        
+        setupImage()
+        setupNameLabel()
+        setupAddressLabel()
+        setupRatingLabel()
+        
+        fetchShop()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func fetchShop() {
+        guard let coffeeShopId = coffeeShop?.id else { return }
+        
+        CoffeeShop.fetch(id: coffeeShopId) { (shop) in
+            guard let shop = shop else { return }
+            
+        }
     }
-    */
-
+    
+    func setupImage() {
+        image.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(image)
+        
+        image.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1).isActive = true
+        image.heightAnchor.constraint(equalToConstant: 170).isActive = true
+        image.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+    }
+    
+    func setupNameLabel() {
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.font = .systemFont(ofSize: 24, weight: .bold)
+        view.addSubview(nameLabel)
+       
+        nameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 0).isActive = true
+        nameLabel.widthAnchor.constraint(equalToConstant: 274).isActive = true
+        nameLabel.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+   }
+       
+    func setupAddressLabel() {
+        addressLabel.translatesAutoresizingMaskIntoConstraints = false
+        addressLabel.font = .systemFont(ofSize: 24, weight: .regular)
+        view.addSubview(addressLabel)
+           
+        addressLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0).isActive = true
+        addressLabel.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        addressLabel.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    }
+       
+    func setupRatingLabel() {
+        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+        ratingLabel.font = .systemFont(ofSize: 24, weight: .regular)
+        view.addSubview(ratingLabel)
+           
+        ratingLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 0).isActive = true
+        ratingLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+    }
+    
 }

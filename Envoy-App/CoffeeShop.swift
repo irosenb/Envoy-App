@@ -24,9 +24,39 @@ class CoffeeShop {
         address = location?["address"] as? String
         rating = dictionary["rating"] as? String
         id = dictionary["id"] as? String
+        
+        let photos = dictionary["photos"] as? [String: Any]
+        let groups = photos?["groups"] as? [[String: Any]]
+        let firstGroup = groups?.first
+        let items = firstGroup?["items"] as? [[String: Any]]
+        let photo = items?.first
+        
+        if let photoSuffix = photo?["suffix"] as? String, let photoPrefix = photo?["prefix"] as? String {
+            photoUrl = "\(photoPrefix.dropLast())\(photoSuffix)"
+        }
+        
+        
     }
     
-    static func fetch(completionHandler: @escaping (_ response: [CoffeeShop]?) -> Void) {
+    static func fetch(id: String, completionHandler: @escaping (_ response: CoffeeShop?) -> Void) {
+        let url = "https://api.foursquare.com/v2/venues/\(id)?client_id=NQTZHZWAZTYN1H1FBNGZEZJJBD0ZB1KDI5JO20PM0XNIPEPV&client_secret=BB52RWLB5UILXUHPSLSC4R4KS4F25VY244YPGT0KARPVDKGP&v=20200211"
+        
+        AF.request(url).responseJSON { (responseJSON) in
+            guard let data = responseJSON.value as? [String: Any] else {
+                print("Didn't work")
+                return
+            }
+            
+            guard let response = data["response"] as? [String: Any] else { return }
+            guard let venue = response["venue"] as? [String: Any] else { return }
+            
+            let coffeeShop = CoffeeShop()
+            coffeeShop.updateFromDictionary(venue)
+            completionHandler(coffeeShop)
+        }
+    }
+    
+    static func fetchAll(completionHandler: @escaping (_ response: [CoffeeShop]?) -> Void) {
         // First we geocode address into coordinates. Wasn't able to input an address into the request.
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(location) { (placemarks, error) in

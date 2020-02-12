@@ -31,7 +31,7 @@ class CoffeeShopsViewController: UIViewController {
     }
     
     func fetchData() {
-        CoffeeShop.fetch { (shops) in
+        CoffeeShop.fetchAll { (shops) in
             guard let shops = shops else { return }
             self.coffeeShops = shops
             self.tableView.reloadData()
@@ -62,6 +62,13 @@ extension CoffeeShopsViewController: UITableViewDataSource {
 }
 
 extension CoffeeShopsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detail = CoffeeShopDetailViewController()
+        detail.coffeeShop = coffeeShops[indexPath.row]
+        
+        navigationController?.pushViewController(detail, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 228
     }
