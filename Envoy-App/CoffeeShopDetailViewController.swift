@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CoffeeShopDetailViewController: UIViewController {
     var coffeeShop: CoffeeShop?
@@ -34,11 +35,24 @@ class CoffeeShopDetailViewController: UIViewController {
         CoffeeShop.fetch(id: coffeeShopId) { (shop) in
             guard let shop = shop else { return }
             
+            if let photoUrl = shop.photoUrl {
+                self.image.sd_setImage(with: URL(string: photoUrl), completed: nil)
+            }
+            
+            self.nameLabel.text = shop.name
+            self.addressLabel.text = shop.address
+            
+            if let rating = shop.rating {
+                self.ratingLabel.text =  String(format:"%.1f", rating)
+            }
+            
         }
     }
     
     func setupImage() {
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        image.layer.masksToBounds = true
         view.addSubview(image)
         
         image.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1).isActive = true

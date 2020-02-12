@@ -13,7 +13,7 @@ import CoreLocation
 class CoffeeShop {
     var id: String?
     var address: String?
-    var rating: String?
+    var rating: Double?
     var name: String?
     var photoUrl: String?
     static let location = "410 Townsend Street, San Francisco, CA"
@@ -22,7 +22,7 @@ class CoffeeShop {
         name = dictionary["name"] as? String
         let location = dictionary["location"] as? [String: Any]
         address = location?["address"] as? String
-        rating = dictionary["rating"] as? String
+        rating = dictionary["rating"] as? Double
         id = dictionary["id"] as? String
         
         let photos = dictionary["photos"] as? [String: Any]
@@ -32,7 +32,7 @@ class CoffeeShop {
         let photo = items?.first
         
         if let photoSuffix = photo?["suffix"] as? String, let photoPrefix = photo?["prefix"] as? String {
-            photoUrl = "\(photoPrefix.dropLast())\(photoSuffix)"
+            photoUrl = "\(photoPrefix.dropLast())/original\(photoSuffix)"
         }
         
         
