@@ -15,11 +15,12 @@
 		E571797623F3754D00B4160A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E571797523F3754D00B4160A /* Assets.xcassets */; };
 		E571797923F3754E00B4160A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E571797823F3754E00B4160A /* Preview Assets.xcassets */; };
 		E571797C23F3754E00B4160A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E571797A23F3754E00B4160A /* LaunchScreen.storyboard */; };
-		E571798723F3754E00B4160A /* Envoy_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571798623F3754E00B4160A /* Envoy_AppTests.swift */; };
 		E571799223F3754E00B4160A /* Envoy_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571799123F3754E00B4160A /* Envoy_AppUITests.swift */; };
 		E57179A023F375B000B4160A /* CoffeeShopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571799F23F375B000B4160A /* CoffeeShopsViewController.swift */; };
 		E57179A423F3851600B4160A /* CoffeeShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57179A323F3851600B4160A /* CoffeeShop.swift */; };
 		E57179A623F38C4C00B4160A /* CoffeeShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57179A523F38C4C00B4160A /* CoffeeShopTableViewCell.swift */; };
+		E57179AA23F4A17000B4160A /* CoffeeShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57179A923F4A17000B4160A /* CoffeeShopTests.swift */; };
+		E57179AC23F4A64800B4160A /* CoffeeShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57179AB23F4A64800B4160A /* CoffeeShopDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,6 @@
 		E571797B23F3754E00B4160A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E571797D23F3754E00B4160A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E571798223F3754E00B4160A /* Envoy-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Envoy-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E571798623F3754E00B4160A /* Envoy_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Envoy_AppTests.swift; sourceTree = "<group>"; };
 		E571798823F3754E00B4160A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E571798D23F3754E00B4160A /* Envoy-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Envoy-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E571799123F3754E00B4160A /* Envoy_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Envoy_AppUITests.swift; sourceTree = "<group>"; };
@@ -63,6 +63,8 @@
 		E571799F23F375B000B4160A /* CoffeeShopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopsViewController.swift; sourceTree = "<group>"; };
 		E57179A323F3851600B4160A /* CoffeeShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShop.swift; sourceTree = "<group>"; };
 		E57179A523F38C4C00B4160A /* CoffeeShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopTableViewCell.swift; sourceTree = "<group>"; };
+		E57179A923F4A17000B4160A /* CoffeeShopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopTests.swift; sourceTree = "<group>"; };
+		E57179AB23F4A64800B4160A /* CoffeeShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopDetailViewController.swift; sourceTree = "<group>"; };
 		E861D58DA78D4A3E1535FE39 /* Pods-Envoy-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Envoy-AppTests.release.xcconfig"; path = "Target Support Files/Pods-Envoy-AppTests/Pods-Envoy-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA299F65B3161B8DF95720F9 /* Pods_Envoy_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Envoy_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 				E571799F23F375B000B4160A /* CoffeeShopsViewController.swift */,
 				E57179A323F3851600B4160A /* CoffeeShop.swift */,
 				E57179A523F38C4C00B4160A /* CoffeeShopTableViewCell.swift */,
+				E57179AB23F4A64800B4160A /* CoffeeShopDetailViewController.swift */,
 			);
 			path = "Envoy-App";
 			sourceTree = "<group>";
@@ -167,8 +170,8 @@
 		E571798523F3754E00B4160A /* Envoy-AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				E571798623F3754E00B4160A /* Envoy_AppTests.swift */,
 				E571798823F3754E00B4160A /* Info.plist */,
+				E57179A923F4A17000B4160A /* CoffeeShopTests.swift */,
 			);
 			path = "Envoy-AppTests";
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E571797023F3754800B4160A /* AppDelegate.swift in Sources */,
+				E57179AC23F4A64800B4160A /* CoffeeShopDetailViewController.swift in Sources */,
 				E57179A423F3851600B4160A /* CoffeeShop.swift in Sources */,
 				E571797223F3754800B4160A /* SceneDelegate.swift in Sources */,
 				E57179A623F38C4C00B4160A /* CoffeeShopTableViewCell.swift in Sources */,
@@ -433,7 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E571798723F3754E00B4160A /* Envoy_AppTests.swift in Sources */,
+				E57179AA23F4A17000B4160A /* CoffeeShopTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
