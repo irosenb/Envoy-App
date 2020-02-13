@@ -8,7 +8,7 @@ run `pod install` in the directory to install Cocoapods (dependencies).
 
 ## Notes
 
-Foursquare doesn't return photos in the `/venues/search` endpoint. Therefore in order to see the photo, you have to tap the cell. I thought that was a better solution instead of making a request for each location. 
+Foursquare doesn't return photos in the `/venues/search` endpoint. Therefore in order to see the photo, you have to tap the cell. I thought that was a better solution instead of making a request for each location to get the photo. 
 
 Not all listings have a location. Here's what Foursquare says about it: 
 
