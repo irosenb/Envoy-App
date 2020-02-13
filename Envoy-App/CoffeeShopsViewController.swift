@@ -14,6 +14,8 @@ class CoffeeShopsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Coffee Shops"
+        
         setupTableView()
         fetchData()
     }
@@ -34,6 +36,16 @@ class CoffeeShopsViewController: UIViewController {
         CoffeeShop.fetchAll { (shops) in
             guard let shops = shops else { return }
             self.coffeeShops = shops
+            
+            for (index, shop) in self.coffeeShops.enumerated() {
+                // Fetch photos for each shop since they're not included in /venues/search
+                guard let shopId = shop.id else { return }
+                CoffeeShop.fetch(id: shopId) { (coffeeShop) in
+                    guard let coffeeShop = coffeeShop else { return }
+                    self.coffeeShops[index] = coffeeShop
+                }
+            }
+            
             self.tableView.reloadData()
         }
     }
@@ -56,6 +68,10 @@ extension CoffeeShopsViewController: UITableViewDataSource {
         
         cell.addressLabel.text = shop.address
         cell.nameLabel.text = shop.name
+        
+        if let photoUrl = shop.photoUrl {
+            cell.imageView?.sd_setImage(with: URL(string: photoUrl), completed: nil)
+        }
         
         return cell
     }
