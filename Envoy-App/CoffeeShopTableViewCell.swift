@@ -25,6 +25,8 @@ class CoffeeShopTableViewCell: UITableViewCell {
     
     func setupPhotoView() {
         photoView.translatesAutoresizingMaskIntoConstraints = false
+        photoView.contentMode = .scaleAspectFill
+        photoView.layer.masksToBounds = true
         addSubview(photoView)
         
         photoView.heightAnchor.constraint(equalToConstant: 170).isActive = true
