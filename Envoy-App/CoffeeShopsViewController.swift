@@ -69,8 +69,13 @@ extension CoffeeShopsViewController: UITableViewDataSource {
         cell.addressLabel.text = shop.address
         cell.nameLabel.text = shop.name
         
+        cell.photoView.image = nil
         if let photoUrl = shop.photoUrl {
-            cell.imageView?.sd_setImage(with: URL(string: photoUrl), completed: nil)
+            cell.photoView.sd_setImage(with: URL(string: photoUrl), completed: nil)
+        }
+        
+        if let rating = shop.rating {
+            cell.ratingLabel.text = String(format:"%.1f", rating)
         }
         
         return cell
