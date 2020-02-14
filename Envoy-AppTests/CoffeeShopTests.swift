@@ -11,7 +11,12 @@ import XCTest
 
 class CoffeeShopTests: XCTestCase {
     let shopCount = 15
+    var firstId: String?
+    
     override func setUp() {
+        Envoy_App.CoffeeShop.fetchAll { (shops) in
+            self.firstId = shops?.first?.id
+        }
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -31,20 +36,30 @@ class CoffeeShopTests: XCTestCase {
         }
     }
     
-    func testCoffeeShopsFirstShop() {
+    func testCoffeeShopHasName() {
         Envoy_App.CoffeeShop.fetchAll { (shops) in
             XCTAssertTrue(shops?.first?.name == "Philz Coffee")
         }
     }
     
-    func testCoffeeShopsContainAddress() {
+    func testCoffeeShopHasAddress() {
         Envoy_App.CoffeeShop.fetchAll { (shops) in
-            guard let shops = shops else {
-                XCTFail()
-                return
+            XCTAssertTrue(shops?.first?.address == "201 Berry Street")
+        }
+    }
+    
+    func testCoffeeShopHasImageUrl() {
+        if let firstId = self.firstId {
+            Envoy_App.CoffeeShop.fetch(id: firstId) { (shop) in
+                XCTAssertNotNil(shop?.photoUrl)
             }
-            for shop in shops {
-                XCTAssertTrue(shop.address != nil)
+        }
+    }
+    
+    func testCoffeeShopHasRating() {
+        if let firstId = self.firstId {
+            Envoy_App.CoffeeShop.fetch(id: firstId) { (shop) in
+                XCTAssertTrue(shop?.rating == 8.8)
             }
         }
     }
